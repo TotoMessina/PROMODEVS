@@ -31,7 +31,6 @@
   .container {
     display: flex;
     width: 100%;
-    max-height: calc(100vh - 50px); /* Por ejemplo, restamos 50px a la altura máxima posible (viewport height) */
     height: auto;
     flex-flow: column wrap;
     justify-content: center;

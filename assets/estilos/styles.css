@@ -205,3 +205,66 @@ footer{
     height: 8px;
     background: linear-gradient(90deg, rgb(173,12,99), #0c0c0c);
 }
+
+@media  only screen and (max-width: 900px){
+    header img{
+        width: 50%;
+        height: auto;
+    }
+    .slick-slider {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 0;
+
+    }
+    footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #0c0c0c;
+        padding: 25px 0;
+    }
+    .info{
+        display: inline-block;
+        text-align: start;
+    }
+    .info h3{
+        padding-bottom: 10px;
+    }
+    .contacto{
+        display: inline-block;
+        text-align: end;
+    }
+    .contacto h3{
+        padding-bottom: 10px;
+    }
+    .redes-personales{
+        display: flex;
+        justify-content: flex-end; /* Alinear los elementos al final del contenedor en el eje principal (horizontal) */
+        align-items: flex-end;
+    }
+    .nosotros{
+        display: grid;
+        grid-template-columns: minmax(50px, 1fr) 1px minmax(50px, 1fr);
+        justify-content: center;
+        color: #ffffff;
+        max-width: 80%;
+        gap: 20px;
+    }
+    .linea {
+        display: grid;
+        width: 1px;
+        height: auto;
+    }
+    .promodevs{
+        justify-content: center;
+        align-items: center;
+        padding: 0 0 3em 0;
+    }
+    .redes{
+        text-align: center;
+        padding-top: 1em;
+    }
+}

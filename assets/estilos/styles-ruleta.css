@@ -1,0 +1,314 @@
+@property --randomize {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: true;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, #FF69B4 5%, #000);
+}
+
+main {
+  --size: 80vmin;
+  display: grid;
+  grid-template-areas: "stack";
+  place-items: center;
+  font-size: calc(var(--size) / 14);
+}
+
+main > *,
+main::before,
+main::after {
+  position: relative;
+  grid-area: stack;
+}
+
+main::before {
+  content: "";
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at 50% 50%, #FF69B4 5%, #000);
+  inline-size: calc(var(--size) / 3);
+  block-size: calc(var(--size) / 3);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+main::after {
+  content: "";
+  font-size: 0.4em;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  max-width: 7.5em;
+  opacity: 0;
+  z-index: 2;
+  color: white;
+}
+
+input {
+  opacity: 0;
+  width: var(--size);
+  height: var(--size);
+  z-index: 3;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+input:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.ticker {
+  --size: 0.8em;
+  transform: rotate(180deg);
+  place-self: center start;
+  -webkit-margin-end: calc((var(--size) - 0.1em) * -1);
+  margin-inline-end: calc((var(--size) - 0.1em) * -1);
+  background-color: #FF6F61;
+  width: var(--size);
+  height: calc(var(--size) / 2);
+  -webkit-clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  z-index: 2;
+}
+
+.wheel {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  grid-template-areas: "stack";
+  inline-size: var(--size);
+  block-size: var(--size);
+  border-radius: 50%;
+}
+
+.slice {
+  --count: 8;
+  --radius: calc(var(--size) / 4);
+  --deg: calc(var(--i) * (360deg / var(--count)));
+  grid-area: stack;
+  font-family: 'Montserrat', sans-serif; /*Cambia el tipo de letra de la ruleta*/
+  font-weight: 700;
+  transform: translate3d(
+      calc(cos(var(--deg)) * var(--radius)),
+      calc(sin(var(--deg)) * var(--radius)),
+      0
+    )
+    rotate(calc(var(--deg)));
+}
+
+.value {
+  --outline: 0.03em;
+  --shadow: calc(var(--outline) * 2);
+  display: flex;
+  align-items: center;
+  padding-top: 0.2em;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  text-shadow: var(--bg) var(--outline) var(--outline),
+    hsla(0 0% 0% / 0.2) var(--shadow) var(--shadow);
+  white-space: nowrap;
+  rotate: 90deg;
+  inline-size: calc(var(--size) / 2);
+  block-size: calc(var(--size) / var(--count) * 3.3);
+  background-color: var(--bg);
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.value img{
+  width: 70%;
+  height: 55%;
+}
+
+/* Fix for Safari squashing spaces */
+.value > span {
+  display: inline-block;
+  height: 1ex;
+}
+
+.value:not(.text)::before {
+  font-size: 0.5em;
+  height: 1.6ex;
+}
+
+.text {
+  font-size: 0.5em;
+}
+
+.sm {
+  font-size: 0.9em;
+}
+
+.slice:nth-child(odd) {
+  --bg: #FFD1DC;
+}
+
+.slice:nth-child(even) {
+  --bg: #FFC0CB;
+}
+
+.slice:nth-child(3n + 3) {
+  --bg: #FF69B4;
+}
+
+.slice:nth-child(4n + 4) {
+  --bg: #D3A297;
+}
+
+.bankrupt {
+  --bg: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+/* Spin the wheel */
+:root {
+  --spin-duration: 10s;
+}
+
+main {
+  -webkit-animation: randomize 1s linear infinite;
+  animation: randomize 1s linear infinite;
+}
+
+main:has(input:checked) {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+main:has(input:checked) .wheel {
+  -webkit-animation: spin var(--spin-duration) cubic-bezier(0.33, 1, 0.68, 1)
+    forwards;
+  animation: spin var(--spin-duration) cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+main:has(input:checked)::after {
+  -webkit-animation: reset 200ms var(--spin-duration) forwards;
+  animation: reset 200ms var(--spin-duration) forwards;
+}
+
+body:has(input:checked) {
+  -webkit-animation: set-cursor var(--spin-duration);
+  animation: set-cursor var(--spin-duration);
+}
+
+input:checked {
+  cursor: initial;
+  -webkit-animation: hide-checkbox var(--spin-duration);
+  animation: hide-checkbox var(--spin-duration);
+}
+
+@-webkit-keyframes randomize {
+  to {
+    --randomize: 360;
+  }
+}
+
+@keyframes randomize {
+  to {
+    --randomize: 360;
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    rotate: calc((3600 + var(--randomize, 0)) * 1deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    rotate: calc((3600 + var(--randomize, 0)) * 1deg);
+  }
+}
+
+@-webkit-keyframes reset {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes reset {
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes set-cursor {
+  from,
+  to {
+    cursor: wait;
+  }
+}
+
+@keyframes set-cursor {
+  from,
+  to {
+    cursor: wait;
+  }
+}
+
+@-webkit-keyframes hide-checkbox {
+  from,
+  to {
+    pointer-events: none;
+  }
+}
+
+@keyframes hide-checkbox {
+  from,
+  to {
+    pointer-events: none;
+  }
+}
+
+@-webkit-keyframes fade-in-out {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-out {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+}

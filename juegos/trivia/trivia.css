@@ -1,0 +1,127 @@
+body {
+  background: #120023;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffb3fc;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  max-width: 520px;
+  background: #1a1a2e;
+  padding: 30px 40px;
+  border-radius: 14px;
+  border: 3px solid #ff2ef5;
+  box-shadow: 0 0 18px #ff2ef5;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ff66ff;
+  text-shadow: 0 0 10px #ff2ef5;
+}
+
+.question-block {
+  margin-bottom: 22px;
+}
+
+.question-block p {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  text-shadow: 0 0 6px #ff66ff;
+}
+
+.options label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+  font-size: 1rem;
+  padding-left: 6px;
+}
+
+.options input[type="radio"] {
+  margin-right: 12px;
+  accent-color: #ff2ef5;
+  cursor: pointer;
+}
+
+.options label:hover {
+  color: #ff99ff;
+}
+
+.result-message {
+  margin-top: 28px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffb3fc;
+  text-shadow: 0 0 8px #ff2ef5;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn {
+  background: #ff2ef5;
+  color: #0f0f1a;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background 0.3s, color 0.3s;
+  display: block;
+  margin: 25px auto 0;
+  max-width: 200px;
+  text-align: center;
+  box-shadow: 0 0 12px #ff2ef5;
+}
+
+.btn:hover {
+  background: #e600d6;
+  color: white;
+  box-shadow: 0 0 20px #ff2ef5;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #ff2ef5;
+  color: #ff2ef5;
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: #ff2ef5;
+  color: #0f0f1a;
+  box-shadow: 0 0 12px #ff2ef5;
+}
+
+.back-menu-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: #ff33cc; /* rosa neón */
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #ff33cc;
+  transition: background-color 0.3s ease;
+  z-index: 9999;
+}
+
+.back-menu-btn:hover {
+  background-color: #ff66ff;
+}

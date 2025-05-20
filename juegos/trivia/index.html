@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trivia Rápida - Cyberpunk Rosa Neón</title>
+  <link rel="stylesheet" href="trivia.css" />
+</head>
+<body>
+
+  <div id="triviaGame" class="game-container">
+    <h2>Trivia Rápida</h2>
+    <a href="../../index.html" class="btn"><button id="backToMenuBtn" class="btn back-menu-btn">Volver al menú</button></a>
+
+    <button id="startTriviaBtn" class="btn">Comenzar Trivia</button>
+
+    <form id="triviaForm" class="hidden">
+      <div id="questionContainer"></div>
+      <button type="submit" class="btn">Enviar respuesta</button>
+    </form>
+
+    <div id="triviaResult" class="result-message hidden"></div>
+
+    <div id="resultActions" class="hidden" style="text-align:center; margin-top: 25px;">
+      <button id="playTriviaAgainBtn" class="btn">Jugar de nuevo</button>
+      <button id="goTriviaHomeBtn" class="btn btn-outline">Volver al menú</button>
+    </div>
+  </div>
+
+  <script src="trivia.js"></script>
+</body>
+</html>

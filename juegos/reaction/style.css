@@ -1,0 +1,62 @@
+body {
+  background-color: #0f001a;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#game-container {
+  padding: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff33cc;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 10px;
+  box-shadow: 0 0 10px #ff33cc;
+}
+
+button:hover {
+  background-color: #ff66ff;
+}
+
+#play-area {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: #111;
+  border: 2px solid #ccc;
+  overflow: hidden;
+}
+
+.target {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.target.real {
+  border: none;
+  object-fit: contain;
+}
+
+.target.bait {
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.target:hover {
+  transform: scale(1.1);
+}

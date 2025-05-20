@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juego de Memoria - PromoDevs</title>
+  <link rel="stylesheet" href="memoria.css" />
+</head>
+<body>
+  <header class="game-header">
+    <h1>🧠 Juego de Memoria</h1>
+    <a href="../../index.html" class="btn">Volver a PromoDevs</a>
+  </header>
+
+  <main>
+    <section class="memory-game">
+      <!-- Aquí se crean las cartas con JS -->
+    </section>
+
+    <div class="game-info">
+        <p>Intentos: <span id="tries">0</span></p>
+        <p>Tiempo: <span id="timer">01:00</span></p>
+        <button id="restart" class="btn-outline">Reiniciar Juego</button>
+    </div>
+
+    <div id="winModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>🎉 ¡Felicitaciones, ganaste! 🎉</h2>
+            <p>¿Qué querés hacer ahora?</p>
+                <div class="modal-buttons">
+                <button id="goHomeBtn" class="btn">Volver al menú</button>
+                <button id="playAgainBtn" class="btn btn-outline">Jugar de nuevo</button>
+            </div>
+        </div>
+    </div>
+
+  </main>
+
+  <script src="memoria.js"></script>
+</body>
+</html>

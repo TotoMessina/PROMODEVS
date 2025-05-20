@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adivina el Logo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>Adivina el Logo</h1>
+    <div class="logo-box">
+      <img id="logo-img" src="" alt="Logo pixelado" />
+    </div>
+    <input type="text" id="user-answer" placeholder="Escribe tu respuesta..." />
+    <button id="submit-btn">Enviar</button>
+    <p id="feedback"></p>
+    <button id="next-btn" style="display: none;">Siguiente</button>
+  </div>
+
+  <button id="restart-btn" style="display: none;">Volver a jugar</button>
+
+  <script src="logos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

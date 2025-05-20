@@ -1,0 +1,68 @@
+body {
+  background-color: #0d0d0d;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.game-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.logo-box {
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 18px;
+  width: 60%;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff33cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff33cc;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #ff66ff;
+}
+
+.logo-box img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff33cc;
+  margin: 20px 0;
+  filter: blur(8px); /* <-- Esto la hace borrosa */
+  transition: filter 0.3s ease;
+}
+
+#restart-btn {
+  padding: 10px 20px;
+  background-color: #ff33cc;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #ff33cc;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#restart-btn:hover {
+  background-color: #ff66ff;
+}
